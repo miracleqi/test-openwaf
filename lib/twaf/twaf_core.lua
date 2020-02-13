@@ -279,7 +279,6 @@ function _M.run(self, _twaf)
         _twaf:get_vars("HTTP_VERSION", ctx.req)
         _twaf:get_vars("RAW_HEADER", ctx.req)
         
-        _twaf.modfactory.twaf_dpm:rewrite(_twaf)
         _twaf.modfactory.twaf_access_rule:handler(_twaf)
         
     elseif phase == "access" then
