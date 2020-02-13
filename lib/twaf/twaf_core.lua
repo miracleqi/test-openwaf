@@ -177,39 +177,8 @@ end
 local function _get_response_body(ctx)
 
     local req = ctx.req
-
-    if ngx_var.header_filter_postpone == '0' then
     
-        req.RESPONSE_BODY   = ngx.arg[1]
-        
-    else
-    
-        if ctx.buffers == nil then
-            ctx.buffers  = {}
-        end
-        
-        local data  = ngx.arg[1]
-        local eof   = ngx.arg[2]
-        
-        if data then
-            table_insert(ctx.buffers, data)
-        end
-        
-        if not eof then
-            -- Send nothing to the client yet.
-            ngx.arg[1] = nil
-            
-            -- no need to process further at this point
-            ctx.short_circuit = true
-            return
-        else
-            ctx.short_circuit = false
-            req.RESPONSE_BODY = table_concat(ctx.buffers, '')
-            ngx.arg[1] = req.RESPONSE_BODY
-            ctx.buffers = nil
-        end
-        
-    end
+    req.RESPONSE_BODY   = ngx.arg[1]
 end
 
 function _M.init(self)
@@ -305,8 +274,6 @@ function _M.run(self, _twaf)
          twaf_opts:opts(_twaf, ctx, nil, nil, "respbody_replacement", {})
          
         _filter_order(_twaf, phase, modules_order)
-        
-        if ngx.arg[2] == true then ngx_var.header_sent = "1" end
         
         if ctx.reset_connection == true then return ngx_ERROR end
     
