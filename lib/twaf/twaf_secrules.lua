@@ -164,7 +164,7 @@ local function _parse_vars(_twaf, rule, ctx, sctx)
             is_match, value = v.var(_twaf, rule, ctx)
             
         elseif v["function"] then
-            is_match, value = _twaf.modfactory[v.var][v["function"]](nil, _twaf)
+            is_match, value = _twaf.modfactory[v.var][v.function](nil, _twaf)
         elseif _type(req[v.var]) == "function" then
             data = req[v.var](_twaf)
         else
