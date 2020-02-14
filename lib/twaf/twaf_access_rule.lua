@@ -224,7 +224,7 @@ function _M.rule_init(r, err)
     r.enable = r.enable == nil and true or r.enable
     twaf_func.type_check(r.enable, "enable", "boolean", err)
 
-    r.user = r.user or ""
+    r.user = r.user or "-"
     twaf_func.type_check(r.user, "user", "string", err)
 
     r.client_ssl = r.client_ssl or false
