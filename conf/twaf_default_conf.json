@@ -188,9 +188,9 @@
         "file_security_log_state": true,
         "file_flush": false,
         "file_content_type": "W3C",
-        "file_access_log_path": "/var/log/OpenWAF/twaf_access.log",
-        "file_security_log_path": "/var/log/OpenWAF/twaf_security.log",
-        "access_log_w3c": "%{remote_addr} - %{remote_user} [%{time_local}] \"%{request_method} %{request_uri} %{request_protocol}\" %{response_status} %{bytes_sent} \"%{http_referer}\" \"%{http_user_agent}\" %{userid} %{server_addr}:%{server_port} \"%{http_host}\" %{request_time} %{policyid} %{unique_id} %{api_id} %{ACCESS_RULE.is_star}",
-        "security_log_w3c": "%{remote_addr} - %{remote_user} [%{time_local}] \"%{request_method} %{request_uri} %{request_protocol}\" %{response_status} %{bytes_sent} \"%{http_referer}\" \"%{http_user_agent}\" %{userid} %{server_addr}:%{server_port} \"%{http_host}\" %{request_time} %{policyid} %{category} %{severity} %{action} %{id} %{rule_name} %{unique_id} %{api_id} %{ACCESS_RULE.is_star}"
+        "file_access_log_path": "/var/log/openwaf_access.log",
+        "file_security_log_path": "/var/log/openwaf_security.log",
+        "access_log_w3c": "%{remote_addr} - %{remote_user} [%{time_local}] \"%{request_method} %{request_uri} %{request_protocol}\" %{response_status} %{bytes_sent} \"%{http_referer}\" \"%{http_user_agent}\" %{userid} %{server_addr}:%{server_port} \"%{http_host}\" %{request_time} %{policyid} %{unique_id} %{api_id}",
+        "security_log_w3c": "%{remote_addr} - %{remote_user} [%{time_local}] \"%{request_method} %{request_uri} %{request_protocol}\" %{response_status} %{bytes_sent} \"%{http_referer}\" \"%{http_user_agent}\" %{userid} %{server_addr}:%{server_port} \"%{http_host}\" %{request_time} %{policyid} %{category} %{severity} %{action} %{id} %{rule_name} %{unique_id} %{api_id}"
     }
 }
