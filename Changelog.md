@@ -1,7 +1,7 @@
 Time: 2017/12/26  
 Version: v0.0.6    
 
-$\color{#FF3030}{11111111111111}$  
+<table><tr><td bgcolor=yellow>背景色yellow</td></tr></table>  
     Access_rule module :
         fix : 'host' not ignore case
     
